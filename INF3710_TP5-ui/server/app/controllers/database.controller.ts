@@ -6,7 +6,7 @@ import {Hotel} from "../../../common/tables/Hotel";
 import {Room} from '../../../common/tables/Room';
 
 import { Animal } from "../../../common/tables/Animal";
-import { Proprietaire } from "../../../common/tables/Proprietaire";
+// import { Proprietaire } from "../../../common/tables/Proprietaire";
 import { DatabaseService } from "../services/database.service";
 import Types from "../types";
 
@@ -141,8 +141,7 @@ export class DatabaseController {
                             dateInscription: ani.dateInscription
                     }));
                     for (let i = 0; i < animals.length; i++) {
-                        console.log(animals[i].nom);
-                        console.log(animals[i].noAnimal as string);
+                        console.log(animals[i]);
                     }
                     res.json(animals);
                 }).catch((e: Error) => {

@@ -59,24 +59,24 @@ export class CommunicationService {
     }
 
     public insertAnimal(animal: Animal): Observable<number> {
-        return this.http.post<number>(this.BASE_URL + "animal/regiser", animal).pipe(
+        return this.http.post<number>(this.BASE_URL + "/animals/register", animal).pipe(
             catchError(this.handleError<number>("insertAnimal")),
         );
     }
 
     public updateAnimal(animal: Animal): Observable<number> {
-        return this.http.post<number>(this.BASE_URL + "animal/update", animal).pipe(
+        return this.http.post<number>(this.BASE_URL + "animals/update", animal).pipe(
             catchError(this.handleError<number>("insertAnimal")),
         );
     }
 
     public deleteAnimal(animal: Animal): Observable<number> {
-        return this.http.post<number>(this.BASE_URL + "animal/delete", animal).pipe(
+        return this.http.post<number>(this.BASE_URL + "animals/delete", animal).pipe(
             catchError(this.handleError<number>("deleteAnimal")),
         );
     }
 
-    public getProprietaires(): Observable<any[]> {
+    public getProprietaires(): Observable<string[]> {
 
         return this.http.get<string[]>(this.BASE_URL + "/proprietaire").pipe(
             catchError(this.handleError<string[]>("getProprietaires")),
