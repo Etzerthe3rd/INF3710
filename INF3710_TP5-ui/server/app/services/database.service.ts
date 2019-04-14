@@ -32,32 +32,32 @@ export class DatabaseService {
     }
 
     public populateDb(): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         return this.pool.query(data);
     }
 
     public getAllFromTable(tableName: string): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         return this.pool.query(`SELECT * FROM HOTELDB.${tableName};`);
     }
 
     // HOTEL
     public getHotels(): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         return this.pool.query('SELECT * FROM HOTELDB.Hotel;');
     }
 
     public getHotelNo(): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         return this.pool.query('SELECT hotelNo FROM HOTELDB.Hotel;');
     }
 
     public createHotel(hotelNo: string, hotelName: string, city: string): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
             hotelNo,
             hotelName,
@@ -70,7 +70,7 @@ export class DatabaseService {
 
     // ROOM
     public getRoomFromHotel(hotelNo: string, roomType: string, price: number): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         let query: string =
         `SELECT * FROM HOTELDB.room
@@ -89,7 +89,7 @@ export class DatabaseService {
     }
 
     public getRoomFromHotelParams(params: object): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         let query: string = 'SELECT * FROM HOTELDB.room \n';
         const keys: string[] = Object.keys(params);
@@ -116,7 +116,7 @@ export class DatabaseService {
     }
 
     public createRoom(room: Room): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
             room.roomno,
             room.hotelno,
@@ -134,7 +134,7 @@ export class DatabaseService {
                        guestName: string,
                        gender: string,
                        guestCity: string): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
             guestNo,
             nas,
@@ -153,7 +153,7 @@ export class DatabaseService {
                          dateFrom: Date,
                          dateTo: Date,
                          roomNo: string): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
             hotelNo,
             guestNo,
@@ -167,7 +167,7 @@ export class DatabaseService {
         }
     // ANIMAL
     public registerAnimal(animal: Animal): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
         animal.noAnimal,
         animal.noClinique,
@@ -185,7 +185,7 @@ export class DatabaseService {
     }
 
     public updateAnimal(animal: Animal): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
             animal.noAnimal,
             animal.noClinique,
@@ -204,27 +204,40 @@ export class DatabaseService {
         }
 
     public deleteAnimal(animal: Animal ): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
         const values: string[] = [
-            animal.noAnimal,
-            animal.noClinique
+            animal.nom
             ];
-        const query: string = `DELETE FROM tp5_schema.Animal WHERE noAnimal = $1 AND noClinique = $2;`;
+        const query: string = `DELETE FROM tp5_schema.Animal WHERE nom = $1;`;
 
         return this.pool.query(query, values);
     }
 
     public getAnimals(): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
-        return this.pool.query('SELECT * FROM tp5_schema.Animal;');
+        return this.pool.query(`SELECT * FROM tp5_schema.Animal;`);
     }
 
+    public getSearchedAnimals(nom: string): Promise<pg.QueryResult> {
+        // this.pool.connect();
+        console.log("hallo");
+        const value: string[] = [
+            nom
+        ];
+
+        const query: string = `SELECT * FROM tp5_schema.Animal WHERE nom LIKE ('%' || $1 || '%')`;
+        // query = query.concat('% ;');
+
+        return this.pool.query(query, value);
+    }
+
+    // Proprietaire
+
     public getNoProps(): Promise<pg.QueryResult> {
-        this.pool.connect();
+        // this.pool.connect();
 
         return this.pool.query('SELECT noProp FROM tp5_schema.Proprietaire;');
     }
-
 
 }

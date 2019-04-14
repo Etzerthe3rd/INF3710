@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 // tslint:disable-next-line:ordered-imports
 import { concat, of,Observable, Subject } from "rxjs";
@@ -15,6 +15,7 @@ export class CommunicationService {
     public constructor(private http: HttpClient) { }
 
     private _listners: any = new Subject<any>();
+    // private formData: FormData = new FormData;
 
     public listen(): Observable<any> {
        return this._listners.asObservable();
@@ -53,8 +54,18 @@ export class CommunicationService {
 
     public getAnimals(): Observable<any[]> {
 
-        return this.http.get<Hotel[]>(this.BASE_URL + "/animal").pipe(
+        return this.http.get<Animal[]>(this.BASE_URL + "/animal").pipe(
             catchError(this.handleError<Animal[]>("getAnimals")),
+        );
+    }
+
+    public getSearchedAnimals(nom: string): Observable<any[]> {
+        const params: HttpParams = new HttpParams().set("nom", nom);
+        // params.append("nom", nom);
+        //console.log(nom);
+
+        return this.http.get<Animal[]>(this.BASE_URL + "/animal/searched", {params: params}).pipe(
+            catchError(this.handleError<Animal[]>("getSearchedAnimals")),
         );
     }
 
@@ -65,13 +76,13 @@ export class CommunicationService {
     }
 
     public updateAnimal(animal: Animal): Observable<number> {
-        return this.http.post<number>(this.BASE_URL + "animals/update", animal).pipe(
+        return this.http.post<number>(this.BASE_URL + "/animals/update", animal).pipe(
             catchError(this.handleError<number>("insertAnimal")),
         );
     }
 
     public deleteAnimal(animal: Animal): Observable<number> {
-        return this.http.post<number>(this.BASE_URL + "animals/delete", animal).pipe(
+        return this.http.post<number>(this.BASE_URL + "/animals/delete", animal).pipe(
             catchError(this.handleError<number>("deleteAnimal")),
         );
     }

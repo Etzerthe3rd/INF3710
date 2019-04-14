@@ -1,0 +1,26 @@
+<div id="hotel" style="text-align: left">
+    <h1> Animals</h1>
+    <div id="error" class="alert alert-danger" role="alert" *ngIf="duplicateError">
+      Insertion sur une cle primaire qui existe deja
+    </div>
+      <ul style="list-style: none;">
+        Entrer un nom d'animal: <li><input class="form-control col-md-4" #nom></li>
+        <li><button type="button" class="btn btn-primary" (click)="getSearchedAnimals(nom.value)"> Search</button></li>
+      </ul>
+
+      <table id ="ht" align="center" border="1" width="350">
+          <thead>
+            <th> ANIMAL</th>
+            <th> ANIMALID</th>
+            <th> CliniqueID</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let animal of animals">
+              <td> {{animal.nom}}</td>
+              <td> {{animal.noAnimal}} </td>
+              <td> {{animal.noAnimal}} </td>
+            </tr>
+          </tbody>
+        </table>
+     
+    </div>

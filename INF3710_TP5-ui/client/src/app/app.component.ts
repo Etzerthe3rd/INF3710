@@ -49,6 +49,13 @@ export class AppComponent implements OnInit {
         });
     }
 
+    public deleteAnimal(animal: Animal): void {
+        this.communicationService.deleteAnimal(animal).subscribe(() => {
+            console.log("animal has been deleted");
+            this.getAnimals();
+        });
+    }
+
     public createDB(): void {
         this.communicationService.setUpDatabase().subscribe((res: any) => {
             console.log(res);

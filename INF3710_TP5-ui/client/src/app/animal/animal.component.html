@@ -1,22 +1,8 @@
 <div id="hotel" style="text-align: left">
   <h1> Animals</h1>
-  <div id="error" class="alert alert-danger" role="alert" *ngIf="duplicateError">
-    Insertion sur une cle primaire qui existe deja
-  </div>
     <ul style="list-style: none;">
-      noAnimal : <li><input class="form-control col-md-4" #noAnimal></li>
-      noClinique : <li><input class="form-control col-md-4" #noClinique></li>
-      nom : <li><input  class="form-control col-md-4" #nom></li>
-      type : <li><input class="form-control col-md-4" #type></li>
-      description : <li><input class="form-control col-md-4" #description></li>
-      DOB : <li><input  class="form-control col-md-4" #DOB></li>
-      etat : <li><input class="form-control col-md-4" #etat></li>
-      noProp : <li>
-        <!-- <select><option *ngFor="let x of props" [ngValue]="x" >{{x}}</option></select> -->
-        <input class="form-control col-md-4" #noProp>
-      </li>
-      dateInscription : <li><input class="form-control col-md-4" #dateInscription></li>
-      <li><button type="button" class="btn btn-primary" (click)="insertAnimal(noAnimal.value,noClinique.value, nom.value, type.value, description.value, DOB.value, etat.value, noProp.value, dateInscription.value )"> Add Animal</button></li>
+      <li><button type="button" class="btn btn-primary" routerLink="/animal/insert"> Add Animal</button></li>
+      <li><button type="button" class="btn btn-primary" routerLink="/animal/search"> Search Animal</button></li>
     </ul>
    
   </div>

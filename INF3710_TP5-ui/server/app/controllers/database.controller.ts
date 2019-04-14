@@ -149,6 +149,33 @@ export class DatabaseController {
                 });
         });
 
+        router.get("/animal/searched",
+                   (req: Request, res: Response, next: NextFunction) => {
+                    // Send the request to the service and send the response
+                    console.log("hey");
+
+                    this.databaseService.getSearchedAnimals(req.body.get("nom")).then((result: pg.QueryResult) => {
+                    const animals: Animal[] = result.rows.map((ani: any) => (
+                        {
+                            noAnimal: ani.noAnimal,
+                            noClinique: ani.noClinique,
+                            nom: ani.nom,
+                            type: ani.type,
+                            description: ani.description,
+                            DOB: ani.DOB,
+                            etat: ani.etat,
+                            noProp: ani.noProp,
+                            dateInscription: ani.dateInscription
+                    }));
+                    for (let i = 0; i < animals.length; i++) {
+                        console.log(animals[i]);
+                    }
+                    res.json(animals);
+                }).catch((e: Error) => {
+                    console.error(e.stack);
+                });
+        });
+
         router.post("/animals/register",
                     (req: Request, res: Response, next: NextFunction) => {
                     const animal: Animal = {
