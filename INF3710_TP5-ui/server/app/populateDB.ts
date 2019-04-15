@@ -31,15 +31,15 @@ INSERT INTO tp5_schema.Proprietaire VALUES('P002','C002','Kuta Ubud','14212 rue 
 INSERT INTO tp5_schema.Proprietaire VALUES('P002','C003','Charles Audd','1315 avenue Montaigne','438-130-7676');
 
 --Animal
-INSERT INTO tp5_schema.Animal VALUES('A001','C001','Louis','Chat','Blanc',DATE'2008-07-07','vivant','P001',DATE'2011-03-20');
-INSERT INTO tp5_schema.Animal VALUES('A002','C001','Rex','Lézard','Vert',DATE'2017-04-30','vivant','P001',DATE'2018-01-01');
-INSERT INTO tp5_schema.Animal VALUES('A003','C001','Zoulou-Tchaing','Chien','Noir',DATE'2009-01-30','vivant','P002',DATE'2011-05-25');
-INSERT INTO tp5_schema.Animal VALUES('A001','C002','Arthur','Souris','Blanc',DATE'2019-03-04','décédé','P001',DATE'2019-04-06');
-INSERT INTO tp5_schema.Animal VALUES('A002','C002','Perry','Lapin','Gris',DATE'2015-07-27','décédé','P002',DATE'2016-09-20');
-INSERT INTO tp5_schema.Animal VALUES('A003','C002','Hamtaro','Hamster','Blanc et orange',DATE'2018-12-31','vivant','P002',DATE'2019-02-20');
-INSERT INTO tp5_schema.Animal VALUES('A001','C003','Bob','Furret','Blanc',DATE'2012-01-27','vivant','P001',DATE'2014-11-24');
-INSERT INTO tp5_schema.Animal VALUES('A002','C003','Fluffy','Chat','Gris',DATE'2005-04-19','vivant','P002',DATE'2007-10-10');
-INSERT INTO tp5_schema.Animal VALUES('A003','C003','Blanka','Chien','Blond',DATE'1998-11-30','vivant','P002',DATE'2011-09-14');
+INSERT INTO tp5_schema.Animal VALUES('A001','C001','louis','Chat','Blanc',DATE'2008-07-07','vivant','P001',DATE'2011-03-20');
+INSERT INTO tp5_schema.Animal VALUES('A002','C001','rex','Lézard','Vert',DATE'2017-04-30','vivant','P001',DATE'2018-01-01');
+INSERT INTO tp5_schema.Animal VALUES('A003','C001','zoulou-tchaing','Chien','Noir',DATE'2009-01-30','vivant','P002',DATE'2011-05-25');
+INSERT INTO tp5_schema.Animal VALUES('A001','C002','arthur','Souris','Blanc',DATE'2019-03-04','décédé','P001',DATE'2019-04-06');
+INSERT INTO tp5_schema.Animal VALUES('A002','C002','perry','Lapin','Gris',DATE'2015-07-27','décédé','P002',DATE'2016-09-20');
+INSERT INTO tp5_schema.Animal VALUES('A003','C002','hamtaro','Hamster','Blanc et orange',DATE'2018-12-31','vivant','P002',DATE'2019-02-20');
+INSERT INTO tp5_schema.Animal VALUES('A001','C003','bob','Furret','Blanc',DATE'2012-01-27','vivant','P001',DATE'2014-11-24');
+INSERT INTO tp5_schema.Animal VALUES('A002','C003','fluffy','Chat','Gris',DATE'2005-04-19','vivant','P002',DATE'2007-10-10');
+INSERT INTO tp5_schema.Animal VALUES('A003','C003','blanka','Chien','Blond',DATE'1998-11-30','vivant','P002',DATE'2011-09-14');
 
 --Examen
 INSERT INTO tp5_schema.Examen VALUES('EX001',DATE'2012-04-13',TIME'12:30','Grippe','E008','A001','C001');

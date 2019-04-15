@@ -13,11 +13,9 @@ export class SearchAnimalComponent  {
 
   public animals: Animal[];
   public getSearchedAnimals(nom: string): void {
+    console.log(nom);
     this.communicationService.getSearchedAnimals(nom).subscribe((animals: Animal[]) => {
         this.animals = animals;
-        for(let i =0; i < animals.length; i++){
-            console.log(animals[i].nom);
-        }
     });
 }
 

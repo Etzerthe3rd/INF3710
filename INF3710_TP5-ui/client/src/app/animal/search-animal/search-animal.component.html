@@ -1,5 +1,6 @@
 <div id="hotel" style="text-align: left">
     <h1> Animals</h1>
+    <h2> Recherche</h2>
     <div id="error" class="alert alert-danger" role="alert" *ngIf="duplicateError">
       Insertion sur une cle primaire qui existe deja
     </div>
@@ -12,13 +13,25 @@
           <thead>
             <th> ANIMAL</th>
             <th> ANIMALID</th>
-            <th> CliniqueID</th>
+            <th> CLINIQUEID</th>
+            <th> TYPE</th>
+            <th> DESCRIPTION</th>
+            <th> DOB</th>
+            <th> ÉTAT</th>
+            <th> PROPID</th>
+            <th> DATE D'INSCRIPTION</th>
           </thead>
           <tbody>
             <tr *ngFor="let animal of animals">
               <td> {{animal.nom}}</td>
               <td> {{animal.noAnimal}} </td>
               <td> {{animal.noAnimal}} </td>
+              <td> {{animal.type}}</td>
+              <td> {{animal.description}} </td>
+              <td> {{animal.DOB}} </td>
+              <td> {{animal.etat}}</td>
+              <td> {{animal.noProp}} </td>
+              <td> {{animal.dateInscription}}</td>
             </tr>
           </tbody>
         </table>
