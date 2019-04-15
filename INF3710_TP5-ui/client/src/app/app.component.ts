@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
           });
     }
 
-    public readonly title: string = "INF3710 TP5";
+    public readonly title: string = "VetoSansFrontieres";
     public animals: Animal[];
     public ngOnInit(): void {
         this.communicationService.listen().subscribe((m:any) => {
