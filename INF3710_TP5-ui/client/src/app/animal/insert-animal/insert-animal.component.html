@@ -6,7 +6,7 @@
     </div>
       <ul style="list-style: none;">
         noAnimal : <li><input class="form-control col-md-4" placeholder="Ex: A006"#noAnimal></li>
-        noClinique : <li><input class="form-control col-md-4" placeholder="Ex: C006"#noClinique></li>
+        noClinique : <li><input class="form-control col-md-4" placeholder="C001, C002 ou C003"#noClinique></li>
         nom : <li><input  class="form-control col-md-4" #nom></li>
         type : <li><input class="form-control col-md-4" placeholder="Ex. : chat, chien, etc."#type></li>
         description : <li><input class="form-control col-md-4" #description></li>
@@ -14,7 +14,7 @@
         etat : <li><input class="form-control col-md-4" placeholder="vivant ou décédé"#etat></li>
         noProp : <li>
           <!-- <select><option *ngFor="let x of props" [ngValue]="x" >{{x}}</option></select> -->
-          <input class="form-control col-md-4" placeholder="Ex: P006"#noProp>
+          <input class="form-control col-md-4" placeholder="P001 ou P002"#noProp>
         </li>
         dateInscription : <li><input class="form-control col-md-4"  placeholder="yyyy-mm-dd" #dateInscription></li>
         <li><button type="button" class="btn btn-primary" (click)="insertAnimal(noAnimal.value,noClinique.value, nom.value, type.value, description.value, DOB.value, etat.value, noProp.value, dateInscription.value ); 

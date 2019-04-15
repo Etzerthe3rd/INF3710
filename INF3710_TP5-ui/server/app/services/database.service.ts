@@ -114,7 +114,7 @@ export class DatabaseService {
     public getNoProps(): Promise<pg.QueryResult> {
         // this.pool.connect();
 
-        return this.pool.query('SELECT noProp FROM tp5_schema.Proprietaire;');
+        return this.pool.query('SELECT noProp AS ProprietaireID FROM tp5_schema.Proprietaire;');
     }
 
 }
